@@ -6,7 +6,6 @@ files:
 hooks:
   BeforeInstall:
     - location: before_install.sh
-    runas: ec2-user
   AfterInstall:
     - location: after_install.sh
     runas: ec2-user
