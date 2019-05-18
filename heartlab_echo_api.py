@@ -45,22 +45,24 @@ def videos(id):
 def upload_file():
     if request.method == 'POST':
 
-        #
-        #
-        # if 'file' not in request.files:
-        #     flash('No file part')
-        #     return redirect(url_for('home'))
-        #
-        # file = request.files['file']
-        #
-        # if file.filename == '':
-        #     flash('No selected file')
-        #     return redirect(url_for('home'))
-        #
-        # if file and file.filename.split('.')[1] == 'dcm':
-        #
-        #     ds = dcmread( DicomBytesIO(file.read()) )
-        #     ds.decompress()
+
+
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(url_for('home'))
+
+        file = request.files['file']
+
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(url_for('home'))
+
+        if file and file.filename.split('.')[1] == 'dcm':
+
+            ds = dcmread( DicomBytesIO(file.read()) )
+            ds.decompress()
+
+            print(ds)
         #
         #     frames = ds.pixel_array
         #
