@@ -1,9 +1,8 @@
 sudo yum update
 
 sudo yum install -y \
-    apache2 \
-    apache2-dev \
-    libapache2-mod-wsgi-py3 \
+    httpd \
+    mod_wsgi \
     python3 \
     python3-pip
 
