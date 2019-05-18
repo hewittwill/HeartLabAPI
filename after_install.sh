@@ -1,1 +1,1 @@
-pip install -r requirements.txt
+pip install -r /home/heartlab-api/requirements.txt
