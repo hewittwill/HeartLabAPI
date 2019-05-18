@@ -9,6 +9,7 @@ from pydicom import dcmread
 from pydicom.filebase import DicomBytesIO
 
 from flask import Flask, render_template, flash, request, redirect, url_for, send_from_directory, jsonify
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 from util import CLASS_NAMES, SEGMENT_VIEWS, PLAX_VIEWS, PSAX_VIEWS, A4C_VIEWS, A3C_VIEWS, A2C_VIEWS
@@ -17,6 +18,7 @@ from predict_view import PredictView
 from segment_view import SegmentView
 
 app = Flask(__name__)
+CORS(app)
 
 graph = tf.get_default_graph()
 tf.Session()
