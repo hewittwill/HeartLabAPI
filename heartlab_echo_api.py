@@ -144,7 +144,7 @@ def upload_file():
 
                 skvideo.io.vwrite('segments/' + str(id) + '.mp4', overlay_vid)
 
-            return jsonify(id: str(id))
+            return jsonify(id=str(id))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
