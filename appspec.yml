@@ -4,7 +4,11 @@ files:
   - source: /
     destination: /home/heartlab-api
 hooks:
+  ApplicationStop:
+    - location: application_stop.sh
   BeforeInstall:
     - location: before_install.sh
   AfterInstall:
     - location: after_install.sh
+  ApplicationStart:
+    - location: application_start.sh
