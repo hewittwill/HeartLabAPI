@@ -4,8 +4,6 @@ files:
   - source: /
     destination: /home/heartlab-api
 hooks:
-  BeforeInstall:
-    - location: before_install.sh
   AfterInstall:
     - location: after_install.sh
     runas: ec2-user
