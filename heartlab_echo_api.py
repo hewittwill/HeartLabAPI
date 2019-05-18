@@ -33,6 +33,14 @@ a2c_model = SegmentView('a2c')
 
 SEG_BATCH_SIZE = 32
 
+@app.route('/segments/<id>')
+def segment(id):
+    return send_from_directory('segments', id + '.mp4)
+
+@app.route('/videos/<id>')
+def segment(id):
+    return send_from_directory('videos', id + '.mp4)
+
 @app.route('/upload_dcm', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
