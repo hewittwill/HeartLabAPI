@@ -66,6 +66,9 @@ def upload_file():
 
             skvideo.io.vwrite('videos/' + str(id) +  ".mp4", ds.pixel_array)
 
+            view = 'other'
+            segmented = False
+
             global graph
             with graph.as_default():
                 result = view_model.classify_view(ds.pixel_array[:10], 10)
@@ -76,6 +79,8 @@ def upload_file():
                 view = CLASS_NAMES[maxidx]
 
                 if view in SEGMENT_VIEWS:
+
+                    segmented = True
 
                     frames = ds.pixel_array
                     nframes = ds.NumberOfFrames
@@ -154,7 +159,7 @@ def upload_file():
 
                 skvideo.io.vwrite('segments/' + str(id) + '.mp4', overlay_vid)
 
-            return jsonify(id=str(id))
+            return jsonify(id=str(id), view=view, segmented=segmented)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
