@@ -43,7 +43,7 @@ def videos(id):
 
 @app.route('/upload_dcm', methods=['GET', 'POST'])
 def upload_file():
-    print(request)
+    print(request.headers)
     if request.method == 'POST':
 
         if 'file' not in request.files:
