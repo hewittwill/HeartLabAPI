@@ -57,12 +57,10 @@ def upload_file():
 
         if file and file.filename.split('.')[1] == 'dcm':
 
-            print(file.read())
-
-            # ds = dcmread( DicomBytesIO(file.read()) )
+            ds = dcmread( DicomBytesIO(file.read()) )
             # ds.decompress()
             #
-            # print(ds)
+            print(ds)
         #
         #     frames = ds.pixel_array
         #
