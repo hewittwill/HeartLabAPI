@@ -36,7 +36,7 @@ SEG_BATCH_SIZE = 32
 
 @app.route('/get-video')
 def get_video():
-    return jsonify(yep='yes')
+    return send_from_directory('videos', request.args.get('id') + '.mp4')
 
 @app.route('/upload_dcm', methods=['GET', 'POST'])
 def upload_file():
