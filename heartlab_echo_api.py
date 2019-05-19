@@ -36,8 +36,15 @@ SEG_BATCH_SIZE = 32
 
 @app.route('/get-video')
 def get_video():
-    print(request.args.get('id'))
-    return send_from_directory('videos', request.args.get('id') + '.mp4')
+    
+    id = request.args.get('id')
+
+    if request.args.get('overlay') == 'true':
+        return send_from_directory('segments', request.args.get('id') + '.mp4')
+    else:
+        return send_from_directory('videos', request.args.get('id') + '.mp4')
+
+
 
 @app.route('/upload_dcm', methods=['GET', 'POST'])
 def upload_file():
