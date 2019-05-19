@@ -163,9 +163,9 @@ def upload_file():
                         overlay[ np.where((overlay == [4, 4, 4]).all(axis=-1)) ] = [0, 0, 255]
                         overlay[ np.where((overlay == [5, 5, 5]).all(axis=-1)) ] = [0, 0, 0]
 
-                overlay_vid = (0.7*overlay) + downsized_orig
+                    overlay_vid = (0.7*overlay) + downsized_orig
 
-                skvideo.io.vwrite('segments/' + str(id) + '.mp4', overlay_vid)
+                    skvideo.io.vwrite('segments/' + str(id) + '.mp4', overlay_vid)
 
             return jsonify(id=str(id), view=view, segmented=segmented)
 
