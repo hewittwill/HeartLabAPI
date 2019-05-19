@@ -1,6 +1,7 @@
 import os
 import cv2
 import uuid
+import boto3
 import skvideo.io
 import numpy as np
 import tensorflow as tf
@@ -33,17 +34,13 @@ a2c_model = SegmentView('a2c')
 
 SEG_BATCH_SIZE = 32
 
-@app.route('/segments/<id>')
-def segments(id):
-    return send_from_directory('segments', id + '.mp4')
-
-@app.route('/videos/<id>')
-def videos(id):
-    return send_from_directory('videos', id + '.mp4')
+@app.route('/get-video')
+def get_video():
+    print(request.body)
+    return jsonify(yep='yes')
 
 @app.route('/upload_dcm', methods=['GET', 'POST'])
 def upload_file():
-    print(request.headers)
     if request.method == 'POST':
 
         if 'file' not in request.files:
