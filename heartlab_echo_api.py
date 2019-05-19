@@ -36,7 +36,8 @@ SEG_BATCH_SIZE = 32
 
 @app.route('/get-video')
 def get_video():
-    print(request.args)
+    print(request.args['id'])
+    print(request.args['overlay'])
     return jsonify(yep='yes')
 
 @app.route('/upload_dcm', methods=['GET', 'POST'])
