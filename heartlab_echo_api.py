@@ -36,7 +36,7 @@ SEG_BATCH_SIZE = 32
 
 @app.route('/get-video')
 def get_video():
-    
+
     id = request.args.get('id')
 
     if request.args.get('overlay') == 'true':
@@ -83,6 +83,8 @@ def upload_file():
                 maxidx = np.where(result == maxval)[0][0]
 
                 view = CLASS_NAMES[maxidx]
+
+                print(view)
 
                 if view in SEGMENT_VIEWS:
 
